@@ -15,9 +15,11 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
+
   {{ $style := resources.Get "css/style.css" }}
+  {{ $syntax := resources.Get "css/syntax.css" }}
   {{ $custom_style := resources.Get "css/custom_style.css" }}
-  {{ $merged_style := slice $style $custom_style | resources.Concat "css/merged_style.css"| resources.Fingerprint}}
+  {{ $merged_style := slice $style $syntax $custom_style | resources.Concat "css/merged_style.css" | resources.Fingerprint}}
   <link rel="stylesheet" href="{{ $merged_style.Permalink }}">
 
   <!-- A partial to be overwritten by the user.
