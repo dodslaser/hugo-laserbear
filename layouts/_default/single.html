@@ -9,9 +9,9 @@
   </i>
 </p>
 {{ end }}{{ end }}
-<content>
+<slot id="content">
   {{ .Content }}
-</content>
+</slot>
 <p>
   {{ range (.GetTerms "tags") }}
   <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>

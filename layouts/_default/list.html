@@ -1,5 +1,5 @@
 {{ define "main" }}
-<content>
+<slot id="content">
   {{ if .Data.Singular }}
   <h3 class="posts-filter">Filtering for "{{ .Title }}"</h3>
   <small>
@@ -34,5 +34,5 @@
       </div>
     </small>
     {{ end }}
-</content>
+  </slot>
 {{ end }}
